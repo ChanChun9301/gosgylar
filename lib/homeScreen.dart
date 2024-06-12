@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project/categories.dart';
+import 'package:project/listPoem.dart';
 import 'package:project/popular.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,28 +13,31 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _page=0;
+  int _page = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255,255,242,223),
+      backgroundColor: Color.fromARGB(255, 255, 242, 223),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255,255,242,223),
+        backgroundColor: Color.fromARGB(255, 255, 242, 223),
         title: const Text(
           'Sözle, Annagylyç,  il  ýada  salsyn...',
           style: TextStyle(
-            fontFamily: 'Quicksand-Bold',
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            fontStyle: FontStyle.italic
-          ),
+              fontFamily: 'Quicksand-Bold',
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic),
         ),
         actions: [
           IconButton(
-            onPressed: (){},
-            icon:Icon(Icons.verified_user)
-          )
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ListPoem()),
+                );
+              },
+              icon: Icon(Icons.verified_user))
         ],
       ),
       body: SingleChildScrollView(
@@ -65,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
             CategoryPage(),
             SizedBox(height: 10),
             Text(
-              'Popular',
+              '',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
@@ -78,23 +82,22 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        items: <Widget>[
-          Icon(Icons.home),
-          Icon(Icons.list_alt_outlined),
-          Icon(Icons.favorite_border_outlined),
-          Icon(Icons.search),
-          Icon(CupertinoIcons.info_circle),
-        ],
-        backgroundColor:Color.fromARGB(255,255,242,223),
-        color: Colors.white,
-        animationCurve: Curves.easeInCubic,
-        animationDuration: Duration(milliseconds: 300),
-        onTap: (index) {
-          setState(() {
-            _page=index;
-          });
-        }
-      ),
+          items: <Widget>[
+            Icon(Icons.home),
+            Icon(Icons.list_alt_outlined),
+            Icon(Icons.favorite_border_outlined),
+            Icon(Icons.search),
+            Icon(CupertinoIcons.info_circle),
+          ],
+          backgroundColor: Color.fromARGB(255, 255, 242, 223),
+          color: Colors.white,
+          animationCurve: Curves.easeInCubic,
+          animationDuration: Duration(milliseconds: 300),
+          onTap: (index) {
+            setState(() {
+              _page = index;
+            });
+          }),
     );
   }
 }
