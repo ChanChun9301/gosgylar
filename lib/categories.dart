@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/models.dart';
+import 'package:project/utils/models.dart';
 
 class CategoryPage extends StatelessWidget {
   const CategoryPage({super.key});

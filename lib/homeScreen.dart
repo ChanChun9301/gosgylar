@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 242, 223),
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 255, 242, 223),
         title: const Text(
@@ -27,15 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
               fontFamily: 'Quicksand-Bold',
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              fontStyle: FontStyle.italic),
+              fontStyle: FontStyle.italic,
+              color: Colors.black),
         ),
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ListPoem()),
-                );
+                // Navigator.pushNamed(context, '/list');
               },
               icon: Icon(Icons.verified_user))
         ],
