@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'homeScreen.dart';
+import 'homePage.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -15,14 +15,15 @@ class WelcomeScreenState extends State<WelcomeScreen> {
     Timer(
         const Duration(seconds: 1),
         () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const HomeScreen())));
+            MaterialPageRoute(builder: (context) => const HomePage())));
   }
 
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
-    return Material(
-      child: Container(
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
+      body: Container(
           color: Colors.white,
           padding: const EdgeInsets.all(15),
           child: Center(

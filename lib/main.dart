@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project/homeScreen.dart';
 import './utils/themes.dart';
 import './utils/routes.dart';
 
@@ -19,13 +18,13 @@ class MyApp extends StatelessWidget {
         builder: (context, currentMode, child) {
           return MaterialApp(
             title: 'Saýlanan goşgylar',
-            initialRoute: '/welcome',
+            initialRoute: '/',
+            // initialRoute: '/welcome',
             routes: appRoutes,
             debugShowCheckedModeBanner: false,
             themeMode: currentMode,
             theme: lightTheme,
             darkTheme: darkTheme,
-            // home: const HomeScreen(),
           );
         });
   }

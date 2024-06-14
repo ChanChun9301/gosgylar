@@ -1,42 +1,40 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project/categories.dart';
-import 'package:project/listPoem.dart';
 import 'package:project/popular.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _page = 0;
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 255, 242, 223),
+        backgroundColor: Theme.of(context).colorScheme.primary,
         title: const Text(
           'Sözle, Annagylyç,  il  ýada  salsyn...',
           style: TextStyle(
-              fontFamily: 'Quicksand-Bold',
+              fontFamily: 'Quicksand',
               fontSize: 20,
               fontWeight: FontWeight.bold,
               fontStyle: FontStyle.italic,
-              color: Colors.black),
+              color: Colors.white),
         ),
-        actions: [
-          IconButton(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(
+                Icons.menu_rounded,
+                color: Colors.white,
+                size: 22,
+              ),
               onPressed: () {
-                // Navigator.pushNamed(context, '/list');
+                Scaffold.of(context).openDrawer();
               },
-              icon: Icon(Icons.verified_user))
-        ],
+            );
+          },
+        ),
       ),
       body: SingleChildScrollView(
         // physics: FixedExtentScrollPhysics(),
@@ -53,15 +51,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.greenAccent,
                 borderRadius: BorderRadius.circular(20),
               ),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    'fon.jpg',
+                    fit: BoxFit.cover,
+                  )),
             ),
             SizedBox(height: 15),
             Text(
               'Goşgy kategoriýalary',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontFamily: 'Quicksand'),
             ),
             SizedBox(height: 10),
             CategoryPage(),
@@ -79,23 +84,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-          items: <Widget>[
-            Icon(Icons.home),
-            Icon(Icons.list_alt_outlined),
-            Icon(Icons.favorite_border_outlined),
-            Icon(Icons.search),
-            Icon(CupertinoIcons.info_circle),
-          ],
-          backgroundColor: Color.fromARGB(255, 255, 242, 223),
-          color: Colors.white,
-          animationCurve: Curves.easeInCubic,
-          animationDuration: Duration(milliseconds: 300),
-          onTap: (index) {
-            setState(() {
-              _page = index;
-            });
-          }),
     );
   }
 }
