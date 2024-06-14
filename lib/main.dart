@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         builder: (context, currentMode, child) {
           return MaterialApp(
             title: 'Saýlanan goşgylar',
-            initialRoute: '/',
+            initialRoute: '/welcome',
             // initialRoute: '/welcome',
             routes: appRoutes,
             debugShowCheckedModeBanner: false,

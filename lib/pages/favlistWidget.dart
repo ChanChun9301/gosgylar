@@ -1,8 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project/detailPage.dart';
 
 class FavListWidget extends StatefulWidget {
-  const FavListWidget({super.key});
+  String title;
+  int id;
+  FavListWidget({
+    Key? key,
+    required this.title,
+    required this.id,
+  }) : super(key: key);
 
   @override
   State<FavListWidget> createState() => _FavListWidgetState();
@@ -11,16 +18,19 @@ class FavListWidget extends StatefulWidget {
 class _FavListWidgetState extends State<FavListWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+    return InkWell(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => DetailPage(id: 1)));
+      },
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Gosgy',
-                style: TextStyle(
+              Text(
+                widget.title,
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Quicksand',

@@ -23,16 +23,7 @@ class HomeScreen extends StatelessWidget {
         ),
         leading: Builder(
           builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(
-                Icons.menu_rounded,
-                color: Colors.white,
-                size: 22,
-              ),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
+            return Image.asset('logo.png');
           },
         ),
       ),

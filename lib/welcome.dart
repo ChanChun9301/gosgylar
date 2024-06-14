@@ -30,7 +30,7 @@ class WelcomeScreenState extends State<WelcomeScreen> {
               child: SizedBox(
                   width: w / 1.2,
                   child: Image.asset(
-                    "nav_logo.png",
+                    "logo.png",
                     fit: BoxFit.fill,
                   )))),
     );

@@ -72,10 +72,10 @@ class _ListPoemState extends State<ListPoem> {
             TextField(
                 decoration: InputDecoration(
                     enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
+                      borderSide: BorderSide(color: Colors.black),
                     ),
                     focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
+                      borderSide: BorderSide(color: Colors.black),
                     ),
                     hintText: 'Gözle...',
                     hintStyle: const TextStyle(

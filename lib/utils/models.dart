@@ -42,4 +42,28 @@ List<Map<String, dynamic>> poems = [
   {'id': 9, 'title': 'Meşhur oglan', 'fav': false},
   {'id': 10, 'title': 'Nury aglasa...', 'fav': false},
   {'id': 11, 'title': 'Pişik-syçan oýnadylar...', 'fav': false},
+  {'id': 7, 'title': 'Orazmyrat suratçy', 'fav': false},
+  {'id': 8, 'title': 'Garagol Myrat', 'fav': false},
+  {'id': 9, 'title': 'Meşhur oglan', 'fav': false},
+  {'id': 10, 'title': 'Nury aglasa...', 'fav': false},
+  {'id': 11, 'title': 'Pişik-syçan oýnadylar...', 'fav': false},
+];
+
+List<Map<String, dynamic>> fav_poems = [
+  {'id': 6, 'title': 'Gyş aýdymjygy', 'fav': false},
+  {'id': 7, 'title': 'Orazmyrat suratçy', 'fav': false},
+  {'id': 8, 'title': 'Garagol Myrat', 'fav': false},
+  {'id': 9, 'title': 'Meşhur oglan', 'fav': false},
+  {'id': 10, 'title': 'Nury aglasa...', 'fav': false},
+  {'id': 11, 'title': 'Pişik-syçan oýnadylar...', 'fav': false},
+  {'id': 1, 'title': 'Myradyň  okaýşy', 'fav': false},
+  {'id': 2, 'title': 'Awtobusyň şofýory', 'fav': false},
+  {'id': 3, 'title': 'Myrat bilen  güjügi', 'fav': false},
+  {'id': 4, 'title': 'Çüw, atym!..', 'fav': false},
+  {'id': 10, 'title': 'Nury aglasa...', 'fav': false},
+  {'id': 11, 'title': 'Pişik-syçan oýnadylar...', 'fav': false},
+  {'id': 1, 'title': 'Myradyň  okaýşy', 'fav': false},
+  {'id': 2, 'title': 'Awtobusyň şofýory', 'fav': false},
+  {'id': 3, 'title': 'Myrat bilen  güjügi', 'fav': false},
+  {'id': 5, 'title': 'Gurjak', 'fav': false},
 ];
