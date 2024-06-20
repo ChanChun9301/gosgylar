@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Category {
   final String title;
   final String image;
@@ -67,3 +69,31 @@ List<Map<String, dynamic>> fav_poems = [
   {'id': 3, 'title': 'Myrat bilen  güjügi', 'fav': false},
   {'id': 5, 'title': 'Gurjak', 'fav': false},
 ];
+
+class PoemModel {
+  final int id;
+  final String text;
+  final String poem_id;
+
+  PoemModel({
+    required this.id,
+    required this.poem_id,
+    required this.text,
+  });
+
+  Map<String, Object> toMap() {
+    return {
+      'id': id,
+      'poem_id': poem_id,
+      'text': text,
+    };
+  }
+
+  factory PoemModel.fromMap(Map<String, dynamic> map) {
+    return PoemModel(
+      id: map['id'],
+      poem_id: map['poem_id'],
+      text: map['text'],
+    );
+  }
+}

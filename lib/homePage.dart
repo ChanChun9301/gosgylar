@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:project/pages/listPoem.dart';
 import 'package:project/pages/favoritePage.dart';
 import 'package:project/pages/homeScreen.dart';
+import 'package:project/pages/profilPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,12 +15,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _page = 0;
-  List<dynamic> _pages = [
-    ListPoem(),
-    HomeScreen(),
-    FavListPoem(),
-    // SearchFilter(),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -50,24 +45,19 @@ class _HomePageState extends State<HomePage> {
     dynamic widget;
     switch (index) {
       case 0:
-        widget = HomeScreen();
+        widget =const  HomeScreen();
         break;
       case 1:
-        widget = ListPoem();
+        widget = const ListPoem();
         break;
       case 2:
-        widget = FavListPoem();
+        widget = const FavListPoem();
         break;
       case 3:
-        widget = ListPoem();
-        // widget = InfoPage();
-        break;
-      case 4:
-        widget = ListPoem();
-        // widget = SearchPage();
+        widget = ProfilPage();
         break;
       default:
-        widget = ListPoem();
+        widget = const HomePage();
         break;
     }
     return widget;

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project/detailPage.dart';
+import 'package:project/pages/detailPage.dart';
 
 class ListWidget extends StatefulWidget {
   String title;

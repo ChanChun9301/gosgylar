@@ -9,7 +9,7 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _page=0;
+  // int _page=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

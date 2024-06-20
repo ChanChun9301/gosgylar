@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/detailPage.dart';
 import './utils/themes.dart';
 import './utils/routes.dart';
 
@@ -18,8 +19,7 @@ class MyApp extends StatelessWidget {
         builder: (context, currentMode, child) {
           return MaterialApp(
             title: 'Saýlanan goşgylar',
-            initialRoute: '/welcome',
-            // initialRoute: '/welcome',
+            initialRoute: '/profil',
             routes: appRoutes,
             debugShowCheckedModeBanner: false,
             themeMode: currentMode,

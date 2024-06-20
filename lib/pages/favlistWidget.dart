@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project/detailPage.dart';
+import 'package:project/pages/detailPage.dart';
 
 class FavListWidget extends StatefulWidget {
   String title;
@@ -43,7 +43,7 @@ class _FavListWidgetState extends State<FavListWidget> {
               ),
             ],
           ),
-          Divider(
+          const Divider(
             height: 1,
             color: Colors.grey,
           )
