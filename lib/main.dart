@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         valueListenable: themeNotifier,
         builder: (context, currentMode, child) {
           return MaterialApp(
-            title: 'Saýlanan goşgylar',
+            title: 'Saýlanan goşgylar taze',
             initialRoute: '/profil',
             routes: appRoutes,
             debugShowCheckedModeBanner: false,
