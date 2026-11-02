@@ -1,0 +1,89 @@
+
+name: Flutter Android Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: flutter-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build and Publish Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. GitHub repository-den kod almak
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Java SDK gurmak
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # 3. Flutter SDK gurmak
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      # 4. Flutter wersiýasyny görkezmek
+      - name: Flutter Version
+        run: flutter --version
+
+      # 5. Flutter paketlerini gurmak
+      - name: Install Dependencies
+        run: flutter pub get
+
+      # 6. Kod formatyny barlamak
+      - name: Verify Formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      # 7. Kod analizini geçirmek
+      - name: Analyze Project
+        run: flutter analyze
+
+      # 8. Testleri işletmek
+      - name: Run Tests
+        run: flutter test
+
+      # 9. Android APK gurmak
+      - name: Build Release APK
+        run: flutter build apk --release
+
+      # 10. APK faýlynyň adyny wersiýa görä üýtgetmek
+      - name: Prepare APK
+        shell: bash
+        run: |
+          mkdir -p release
+          cp build/app/outputs/flutter-apk/app-release.apk \
+            "release/flutter-${GITHUB_REF_NAME}.apk"
+
+      # 11. APK-ni GitHub Actions Artifacts hökmünde saklamak
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-${{ github.ref_name }}
+          path: release/*.apk
+          retention-days: 30
+
+      # 12. GitHub Release döretmek
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/*.apk
+          generate_release_notes: true
+          fail_on_unmatched_files: true
